@@ -6,21 +6,25 @@ namespace ariel
     class NumberWithUnits
     {
         double value;
-        string measure;
+        string unit;
 
     public:
         //constructor
         NumberWithUnits(double value, string measure){
             this->value = value;
-            this->measure = measure;
+            this->unit = measure;
         }
         //copy constructor
         NumberWithUnits(const NumberWithUnits& other){
             this->value = other.value;
-            this->measure = other.measure;
+            this->unit = other.unit;
         }
         double getValue(){
             return this->value;
+        }
+
+        string getUnit(){
+            return this->unit;
         }
         //API
         static void read_units(ifstream& fileName){

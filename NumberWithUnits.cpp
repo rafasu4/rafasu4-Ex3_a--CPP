@@ -4,7 +4,7 @@ namespace ariel
 
     NumberWithUnits NumberWithUnits::operator+(const NumberWithUnits &other) const
     {
-        return NumberWithUnits(this->value + other.value, this->measure);
+        return NumberWithUnits(this->value + other.value, this->unit);
     }
 
     NumberWithUnits &NumberWithUnits::operator+=(const NumberWithUnits &other)
@@ -33,7 +33,7 @@ namespace ariel
 
     NumberWithUnits NumberWithUnits::operator-(const NumberWithUnits &other) const
     {
-        return NumberWithUnits(this->value - other.value, this->measure);
+        return NumberWithUnits(this->value - other.value, this->unit);
     }
 
     NumberWithUnits &NumberWithUnits::operator-=(const NumberWithUnits &other)
@@ -74,7 +74,7 @@ namespace ariel
     bool NumberWithUnits::operator<(const NumberWithUnits &other) const
     {
         bool ans = false;
-        (this->value > other.value) ? ans = true : ans;
+        (this->value < other.value) ? ans = true : ans;
         return ans;
     }
 
@@ -115,7 +115,7 @@ namespace ariel
 
     ostream &operator<<(ostream &os, const NumberWithUnits& n)
     {
-        os << "value: " << n.value << "unit: " << n.measure;
+        os << "value: " << n.value << " unit: " << n.unit;
         return os;
     }
 
